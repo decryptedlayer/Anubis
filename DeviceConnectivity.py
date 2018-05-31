@@ -2,7 +2,7 @@ import requests, socket
 
 class NetworkConnection:
     
-    #Verifying device connection status and returning local IP
+    #Function for verifying device connection status and returning local IP
     def device_status(self):
         try:
             #Verifying IPV4 connectivity and DNS resolution
