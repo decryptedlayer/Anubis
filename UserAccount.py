@@ -58,9 +58,7 @@ class UserAccount:
                 print(self.database)
 
     def main(self):
-        self.database = {}
-        
-        
+        self.database = {}       
         self.account()
 
 if __name__ == "__main__":
