@@ -2,16 +2,22 @@ Potential cryptographic quantum resistant algorithms for use in encryption/decry
 *NTRU
 *NewHope
 
-Actors to display the functions of Anubis
-*Alice (Sender)
-*Bob (Receiver)
-*Trent (Arbitrator)
+Hashing
+*Sha512
+*Salting
+
+Dramatis Personae to display the functions of Anubis
+*Alice (Participant)
+*Bob (Participant)
+*Trent (Trusted Arbitrator)
 *Mallory (Malicious Attacker)
 *Eve (Eavesdropper)
 *P (Plaintext)
 *C (Ciphertext)
 *E (Encrypt)
 *D (Decrypt)
+*H (Hash)
+*Salt (S)
 
 Example of how messages are sent and received on Anubis using RSA as an example
 1 - Alice > Write message P > Select send to Bob > (P)^E=C > Send C to Bob
@@ -20,3 +26,9 @@ Example of how messages are sent and received on Anubis using RSA as an example
 3 - Bob > Write response P > Select send to Alice > (P)^E=C > Send C to Alice
 * C sent over network
 4 - Alice > Receives C > C automatically decrypted > (C)^D=P > P displayed on Alices messenger
+
+Example of how accounts are generated
+1 - Alice > Select create new account > Enter username P > Enter password P twice > If passwords match password = P
+2 - Hashing password P - H(P)=C > Salting C - S(C)=C > Store Username P alongside password C in database
+3 - Alice selects login > Enter Username P > Enter password P > Hashing password P - H(P)=C > Salting C - S(C)=C
+4 - If username P in database > if hashed+salted password C matches value in database connected to username P > Login successful
