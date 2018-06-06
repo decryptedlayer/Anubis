@@ -13,4 +13,8 @@ Actors to display the functions of Anubis
 
 Example of how messages are sent and received on Anubis using RSA as an example
 1 - Alice > Write message P > Select send to Bob > (P)^E=C > Send C to Bob
-2 - Bob > Receives C > C automatically decrypted > (C)^D=P > P displayed on Bobs messenger 
+* C sent over network
+2 - Bob > Receives C > C automatically decrypted > (C)^D=P > P displayed on Bobs messenger
+3 - Bob > Write response P > Select send to Alice > (P)^E=C > Send C to Alice
+* C sent over network
+4 - Alice > Receives C > C automatically decrypted > (C)^D=P > P displayed on Alices messenger
