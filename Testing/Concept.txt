@@ -17,7 +17,7 @@ Dramatis Personae to display the functions of Anubis
 *E (Encrypt)
 *D (Decrypt)
 *H (Hash)
-*Salt (S)
+*S (Salt)
 
 Example of how messages are sent and received on Anubis using RSA as an example
 1 - Alice > Write message P > Select send to Bob > (P)^E=C > Send C to Bob
