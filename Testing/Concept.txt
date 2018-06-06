@@ -1,5 +1,4 @@
-Cryptographic quantum resistant algorithms
-
+Potential cryptographic quantum resistant algorithms for use in encryption/decryption within Anubis
 *NTRU
 *NewHope
 
