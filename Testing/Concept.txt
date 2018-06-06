@@ -1,6 +1,7 @@
 Potential cryptographic quantum resistant algorithms for use in encryption/decryption within Anubis
 *NTRU
 *NewHope
+*McEliece
 *AES_256 (Large key size is a MUST) - Potentially quantum resistant due to not being suceptible to shor's algorithm though Grover's algorithm does pose a potential threat
 
 Hashing
