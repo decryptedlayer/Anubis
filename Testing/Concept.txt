@@ -6,6 +6,8 @@ Actors to display the functions of Anubis
 *Alice (Sender)
 *Bob (Receiver)
 *Trent (Arbitrator)
+*Mallory (Malicious Attacker)
+*Eve (Eavesdropper)
 *P (Plaintext)
 *C (Ciphertext)
 *E (Encrypt)
