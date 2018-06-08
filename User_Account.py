@@ -1,7 +1,7 @@
 import hashlib as hsh
 import getpass
 import json
-from DeviceConnectivity import NetworkConnection
+from Device_Connectivity import NetworkConnection
 
 
 class UserAccount:
