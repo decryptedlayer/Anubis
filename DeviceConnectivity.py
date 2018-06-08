@@ -3,7 +3,7 @@ import requests, socket
 class NetworkConnection:
     
     #Function for verifying device connection status and returning local IP
-    def device_status(self):
+    def device_status():
         try:
             #Verifying IPV4 connectivity and DNS resolution
             requests.get("http://www.msftncsi.com", timeout=3)
@@ -13,8 +13,3 @@ class NetworkConnection:
             pass
         return False
 
-    def main(self):        
-
-if __name__ == "__main__":
-    DeviceConnectivity = NetworkConnection()
-    DeviceConnectivity.main()
