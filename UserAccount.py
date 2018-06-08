@@ -1,6 +1,7 @@
 import hashlib as hsh
 import getpass
 import json
+from DeviceConnectivity import NetworkConnection
 
 
 class UserAccount:
@@ -83,6 +84,11 @@ class UserAccount:
                 #Authenticate username is in database and hashed and salted password value is assigned to particular username
                 if user in self.database and hashedPassword == self.database[user]:
                     print("Login successful, welcome %s" % (user))
+
+                    #Getting host IP after successful user account authentication
+                    self.ip = NetworkConnection.device_status()
+                    print(self.ip)
+                    
                 else:
                     print("incorrect username/password combination")
 
