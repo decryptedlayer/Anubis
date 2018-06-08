@@ -2,7 +2,7 @@ from sys import platform
 
 class DeviceArchitecture:
 
-    def system_architecture(self):
+    def system_architecture():
         try:
             if platform == "linux" or platform == "linux2":
                 return "Linux"
@@ -15,10 +15,3 @@ class DeviceArchitecture:
         except Exception:
             pass
         return False
-
-    def main(self):       
-        print(self.system_architecture())
-
-if __name__ == "__main__":
-    Architecture = DeviceArchitecture()
-    Architecture.main()
