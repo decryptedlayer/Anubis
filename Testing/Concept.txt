@@ -1,4 +1,4 @@
-Potential cryptographic quantum resistant algorithms for use in encryption/decryption within Anubis
+Potential quantum resistant cryptographic algorithms for use encrypting/decrypting within Anubis
 *NTRU
 *NewHope
 *McEliece
