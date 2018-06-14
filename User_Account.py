@@ -1,14 +1,12 @@
 import hashlib as hsh
-import getpass
-import json
+import getpass, json, random, string
 from Device_Connectivity import NetworkConnection
-import random
-import string
 
 class UserAccount:
     
     #Main function for account creation
-    def account(self):        
+    def account(self):
+        
         #Opening JSON file which holds usernames and hashed/salted passwords
         try:
             with open("data.json", "r") as inFile:
@@ -59,16 +57,14 @@ class UserAccount:
 
                 #Passwords dont match return to initial state   
                 else:
-                    print("Password dont match")
-                    
+                    print("Password dont match")                    
 
             #If login command invoked
             elif invoke == "l":                
 
                 #Requesting user input username and password and storing values to variables
                 user = str(input("Enter username: "))
-                uInput = str.encode(getpass.getpass("Enter password: "))        
-
+                uInput = str.encode(getpass.getpass("Enter password: "))
                 
                 #Authenticate username is in database and hashed and salted password value is assigned to particular username
                 if user in self.database:
@@ -79,8 +75,7 @@ class UserAccount:
 
                     #Verifying hashed and salted password input same as hashed salted password in database
                     if passW == self.database[user][0]:
-                        print("Login successful, welcome %s" % (user))
-                        
+                        print("Login successful, welcome %s" % (user))                        
                         #Getting host IP after successful user account authentication
                         self.ip = NetworkConnection.device_status()
                         print(self.ip)                    
@@ -107,13 +102,14 @@ class UserAccount:
 
         return hashedPassword
 
+    #Function for generating semi-random salt values
     def saltValue(self):
         #Generating random salt with length between 10 - 30 characters using both random ascii lowercase letters and random digits
         slt = str("".join(random.choice(string.ascii_lowercase+string.digits) for i in range(10, 30)))
+
         return slt
     
     def main(self):
-        print(self.saltValue())
         self.database = {}       
         self.account()
 
