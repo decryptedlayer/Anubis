@@ -2,6 +2,8 @@ import hashlib as hsh
 import getpass
 import json
 from Device_Connectivity import NetworkConnection
+import random
+import string
 
 class UserAccount:
     
@@ -26,22 +28,28 @@ class UserAccount:
                 #Using getpass to obfuscate password input to interpreter
                 uInput = str.encode(getpass.getpass("Enter password: "))
 
+                #Generating new random salt value
+                slt = self.saltValue()
+                
                 #Salting and hashing password
-                passOne = self.hashValues(uInput)               
+                passOne = self.hashValues(uInput, slt)               
 
                 #Requesting user to re-enter same password again
                 uInputTwo = str.encode(getpass.getpass("Enter password again: "))
-                passTwo = self.hashValues(uInputTwo)
+
+                #Hashing and salting second password input
+                passTwo = self.hashValues(uInputTwo, slt)
 
                 #Checking if username is already taken
                 if user in self.database:
                     print("Username already exists, please use different username")
                     pass
+                
                 #Checking if both passwords entered match
                 elif passOne == passTwo:
                     print("Passwords match")
-                    #Adding password to dictionary assigned to username as key
-                    self.database[user] = passTwo
+                    #Adding hashed password and salt to dictionary assigned to username as key
+                    self.database[user]= [passTwo, slt]
                     print(self.database)
 
                     #Opening and writing new username and hashed password to JSON out file
@@ -61,13 +69,21 @@ class UserAccount:
                 user = str(input("Enter username: "))
                 uInput = str.encode(getpass.getpass("Enter password: "))        
 
-                passW = self.hashValues(uInput)
+                
                 #Authenticate username is in database and hashed and salted password value is assigned to particular username
-                if user in self.database and passW == self.database[user]:
-                    print("Login successful, welcome %s" % (user))
-                    #Getting host IP after successful user account authentication
-                    self.ip = NetworkConnection.device_status()
-                    print(self.ip)                    
+                if user in self.database:
+                    #Extracting original salt associated with username
+                    uSlt = self.database[user][1]                    
+                    #Hashing and salting password for user to login
+                    passW = self.hashValues(uInput, uSlt)
+
+                    #Verifying hashed and salted password input same as hashed salted password in database
+                    if passW == self.database[user][0]:
+                        print("Login successful, welcome %s" % (user))
+                        
+                        #Getting host IP after successful user account authentication
+                        self.ip = NetworkConnection.device_status()
+                        print(self.ip)                    
                 else:
                     print("incorrect username/password combination")
 
@@ -80,19 +96,24 @@ class UserAccount:
                 print(self.database)
     
     #Funtion for hashing and salting
-    def hashValues(self, value):
+    def hashValues(self, value, salt):
         #Initialising new hash variable
-        hashval = hsh.sha512()
-        
+        hashval = hsh.sha512()        
         #Salting and hashing password
-        hashval.update(b'salt')
+        hashval.update(b'%s' % (str.encode(salt)))
         hashval.update(value)
         #Digesting hex hash values
         hashedPassword = hashval.hexdigest()
 
         return hashedPassword
+
+    def saltValue(self):
+        #Generating random salt with length between 10 - 30 characters using both random ascii lowercase letters and random digits
+        slt = str("".join(random.choice(string.ascii_lowercase+string.digits) for i in range(10, 30)))
+        return slt
     
     def main(self):
+        print(self.saltValue())
         self.database = {}       
         self.account()
 
