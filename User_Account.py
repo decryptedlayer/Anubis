@@ -7,7 +7,7 @@ class UserAccount:
     #Main function for account creation
     def account(self):
         
-        #Opening JSON file which holds usernames and hashed/salted passwords
+        #Opening JSON file which holds usernames hashed passwords and semi-random salts
         try:
             with open("data.json", "r") as inFile:
                 self.database = json.load(inFile)
@@ -23,6 +23,12 @@ class UserAccount:
             if invoke == "nu":
                 #Storing new username
                 user = str(input("Enter username: "))
+
+                #Checking if username is already taken
+                if user in self.database:
+                    print("Username already exists, please use different username")
+                    pass
+                
                 #Using getpass to obfuscate password input to interpreter
                 uInput = str.encode(getpass.getpass("Enter password: "))
 
@@ -37,11 +43,6 @@ class UserAccount:
 
                 #Hashing and salting second password input
                 passTwo = self.hashValues(uInputTwo, slt)
-
-                #Checking if username is already taken
-                if user in self.database:
-                    print("Username already exists, please use different username")
-                    pass
                 
                 #Checking if both passwords entered match
                 elif passOne == passTwo:
@@ -105,11 +106,12 @@ class UserAccount:
     #Function for generating semi-random salt values
     def saltValue(self):
         #Generating random salt with length between 10 - 30 characters using both random ascii lowercase letters and random digits
-        slt = str("".join(random.choice(string.ascii_lowercase+string.digits) for i in range(10, 30)))
+        slt = str("".join(random.choice(string.ascii_lowercase+string.digits) for i in range(32, 64)))
 
         return slt
     
     def main(self):
+        print(self.saltValue())
         self.database = {}       
         self.account()
 
