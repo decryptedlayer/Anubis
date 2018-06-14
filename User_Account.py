@@ -23,12 +23,6 @@ class UserAccount:
             if invoke == "nu":
                 #Storing new username
                 user = str(input("Enter username: "))
-
-                #Checking if username is already taken
-                if user in self.database:
-                    print("Username already exists, please use different username")
-                    pass
-                
                 #Using getpass to obfuscate password input to interpreter
                 uInput = str.encode(getpass.getpass("Enter password: "))
 
@@ -43,6 +37,11 @@ class UserAccount:
 
                 #Hashing and salting second password input
                 passTwo = self.hashValues(uInputTwo, slt)
+
+                #Checking if username is already taken
+                if user in self.database:
+                    print("Username already exists, please use different username")
+                    pass
                 
                 #Checking if both passwords entered match
                 elif passOne == passTwo:
