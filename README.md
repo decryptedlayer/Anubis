@@ -13,3 +13,6 @@ Hash values utilise PBKDF2 (Password-Based Key Derivation Function 2) to reduce 
 <sup>2 </sup>https://cs.stackexchange.com/questions/586/could-quantum-computing-eventually-be-used-to-make-modern-day-hashing-trivial-to
 
 <sup>2 </sup>https://stackoverflow.com/questions/2768807/quantum-computing-and-encryption-breaking
+
+**Supplimentary References**
+https://www.uow.edu.au/~thomaspl/pdf/Rose11.pdf
