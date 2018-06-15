@@ -1,11 +1,11 @@
-import getpass, json, random, string, binascii, bcrypt
+import getpass, json, random, string, binascii, bcrypt, sys
 from Device_Connectivity import NetworkConnection
 from Detect_Device import DeviceArchitecture
 
 class UserAccount:
     
     #Main function for account creation
-    def account(self):
+    def genAccount(self):
         
         #Opening JSON file which holds usernames, hashed passwords and associated salts
         try:
@@ -17,7 +17,7 @@ class UserAccount:
 
         #Code block invoking login or account creation
         while True:
-            invoke = str(input("New user or login (nu/l/x/d): "))
+            invoke = str(input("Log-in or create a new account (l/nu/x/d): "))
 
             #If new user command invoked
             if invoke.lower() == "nu":
@@ -79,13 +79,14 @@ class UserAccount:
 
                     #Verifying hashed and salted password input same as hashed salted password in database
                     if passW == self.database[user][0]:
-                        print("Login successful!\nwelcome %s" % (user))                        
+                        print("-----------------\nLogin successful!")                        
                         #Getting host IP after successful user account authentication
                         self.ip = NetworkConnection.device_status()
                         self.device = DeviceArchitecture.system_architecture()
-                        print("IP: %s\nOS: %s" % (self.ip, self.device))                    
+                        print("IP: %s\nOS: %s" % (self.ip, self.device))
+                        self.userAccount(user)
                 else:
-                    print("incorrect username or password combination")
+                    print("Incorrect username or password combination")
 
             #Command used for exiting program        
             elif invoke.lower() == "x":
@@ -98,7 +99,7 @@ class UserAccount:
     #Funtion for hashing and salting
     def hashValues(self, value, salt):        
         #Encoding salt from string to binary
-        hashVal = bcrypt.kdf(value, salt, 128, 16)
+        hashVal = bcrypt.kdf(value, salt, 64, 100)
 
         #Generating hex value from binary hash
         key = binascii.hexlify(hashVal)
@@ -112,10 +113,22 @@ class UserAccount:
         slt = bcrypt.gensalt(20)
 
         return slt
+
+    def userAccount(self, user):
+        invoke = str(input("\nHi %s do you want to log-off your account or exit program (lf/x): " % (user[0].upper()+user[1:])))
+        if invoke.lower() == "lf":
+            print("Logging off...")
+            self.genAccount()
+        elif invoke.lower() == "x":
+            print("Exiting program...")
+            sys.exit()
+        else:
+            print("Unknown command")
+            
     
     def main(self):
         self.database = {}       
-        self.account()
+        self.genAccount()
 
 if __name__ == "__main__":
     Account = UserAccount()
