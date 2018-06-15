@@ -6,8 +6,8 @@ Potential quantum resistant cryptographic algorithms for use encrypting/decrypti
 though Grover's algorithm does pose a potential threat
 
 Hashing
-*Sha512
-*Salting
+*BCrypt - Tried and tested hashing algorithm which will be the primary algorithm for hashing and salting user passwords
+*Argon2 - New hashing algorithm which appears to have slight advantages over BCrypt in the realm of parallelism due to the addition of memory requirements, forcing an attacker to trade significant cost for equal paralellism. Though Argon2 has a slight advantage it has not been scruitinised as much as BCrypt. Once Argon2 has faced comparable scrutiny and still appears to have advantages over BC
 
 Dramatis Personae to display the functions of Anubis
 *Alice (Participant)
