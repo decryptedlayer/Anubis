@@ -1,5 +1,5 @@
 # Anubis
-A post quantum resistant peer-to-peer instant messenger utilising end-to-end encryption (E2EE) on messages sent and received.
+A quantum resistant peer-to-peer instant messenger utilising cure.
 
 **Encryption methods to maximise resistance to quantum based attacks:**
 
