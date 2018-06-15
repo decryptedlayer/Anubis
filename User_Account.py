@@ -1,5 +1,4 @@
-import bcrypt
-import getpass, json, random, string, binascii
+import getpass, json, random, string, binascii, bcrypt
 from Device_Connectivity import NetworkConnection
 from Detect_Device import DeviceArchitecture
 
