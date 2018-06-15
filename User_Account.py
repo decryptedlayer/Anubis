@@ -123,8 +123,7 @@ class UserAccount:
             print("Exiting program...")
             sys.exit()
         else:
-            print("Unknown command")
-            
+            print("Unknown command")            
     
     def main(self):
         self.database = {}       
