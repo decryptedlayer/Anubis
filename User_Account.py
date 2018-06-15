@@ -1,4 +1,5 @@
-import getpass, json, random, string, binascii, bcrypt
+import bcrypt
+import getpass, json, random, string, binascii
 from Device_Connectivity import NetworkConnection
 from Detect_Device import DeviceArchitecture
 
@@ -114,7 +115,6 @@ class UserAccount:
         return slt
     
     def main(self):
-        print(self.saltValue())
         self.database = {}       
         self.account()
 
