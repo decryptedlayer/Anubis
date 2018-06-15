@@ -1,6 +1,7 @@
 import hashlib as hsh
 import getpass, json, random, string, binascii
 from Device_Connectivity import NetworkConnection
+from Detect_Device import DeviceArchitecture
 
 class UserAccount:
     
@@ -75,12 +76,13 @@ class UserAccount:
 
                     #Verifying hashed and salted password input same as hashed salted password in database
                     if passW == self.database[user][0]:
-                        print("Login successful, welcome %s" % (user))                        
+                        print("Login successful!\nwelcome %s" % (user))                        
                         #Getting host IP after successful user account authentication
                         self.ip = NetworkConnection.device_status()
-                        print(self.ip)                    
+                        self.device = DeviceArchitecture.system_architecture()
+                        print("IP: %s\nOS: %s" % (self.ip, self.device))                    
                 else:
-                    print("incorrect username/password combination")
+                    print("incorrect username or password combination")
 
             #Command used for exiting program        
             elif invoke == "x":
