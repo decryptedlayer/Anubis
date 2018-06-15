@@ -1,5 +1,5 @@
 import hashlib as hsh
-import getpass, json, random, string
+import getpass, json, random, string, binascii
 from Device_Connectivity import NetworkConnection
 
 class UserAccount:
@@ -91,16 +91,18 @@ class UserAccount:
                 print(self.database)
     
     #Funtion for hashing and salting
-    def hashValues(self, value, salt):
-        #Initialising new hash variable
-        hashval = hsh.sha512()        
-        #Salting and hashing password
-        hashval.update(b'%s' % (str.encode(salt)))
-        hashval.update(value)
-        #Digesting hex hash values
-        hashedPassword = hashval.hexdigest()
+    def hashValues(self, value, salt):        
+        #Encoding salt from string to binary
+        s = (b'%s' % (str.encode(salt)))
 
-        return hashedPassword
+        #Initialising hash value using sha512 as hash function with 100,000 rounds
+        hashVal = hsh.pbkdf2_hmac('sha512', value, s, 100000)
+
+        #Generating hex value from binary hash
+        hashedP = binascii.hexlify(hashVal)
+
+        #Returning decoded hex value
+        return hashedP.decode('ascii')
 
     #Function for generating semi-random salt values
     def saltValue(self):
