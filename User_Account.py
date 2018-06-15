@@ -1,5 +1,4 @@
-import hashlib as hsh
-import getpass, json, random, string, binascii
+import getpass, json, random, string, binascii, bcrypt
 from Device_Connectivity import NetworkConnection
 from Detect_Device import DeviceArchitecture
 
@@ -48,7 +47,7 @@ class UserAccount:
                 elif passOne == passTwo:
                     print("Passwords match")
                     #Adding hashed password and salt to dictionary assigned to username as key
-                    self.database[user]= [passTwo, slt]
+                    self.database[user]= [passTwo, slt.decode('ascii')]
 
                     #Printing database for testing purposes
                     "print(self.database)"
@@ -72,7 +71,9 @@ class UserAccount:
                 #Authenticate username is in database and hashed and salted password value is assigned to particular username
                 if user in self.database:
                     #Extracting original salt associated with username
-                    uSlt = self.database[user][1]                    
+                    uSlt = self.database[user][1]
+                    #Encoding associated salt into binary
+                    uSlt = str.encode(uSlt)
                     #Hashing and salting password for user to login
                     passW = self.hashValues(uInput, uSlt)
 
@@ -97,21 +98,18 @@ class UserAccount:
     #Funtion for hashing and salting
     def hashValues(self, value, salt):        
         #Encoding salt from string to binary
-        s = (b'%s' % (str.encode(salt)))
-
-        #Initialising hash value using sha512 as hash function with 100,000 rounds
-        hashVal = hsh.pbkdf2_hmac('sha512', value, s, 100000)
+        hashVal = bcrypt.kdf(value, salt, 128, 16)
 
         #Generating hex value from binary hash
-        hashedP = binascii.hexlify(hashVal)
-
+        key = binascii.hexlify(hashVal)
+        
         #Returning decoded hex value
-        return hashedP.decode('ascii')
+        return key.decode('ascii')
 
     #Function for generating semi-random salt values
     def saltValue(self):
-        #Generating random salt with length between 10 - 30 characters using both random ascii lowercase letters and random digits
-        slt = str("".join(random.choice(string.ascii_lowercase+string.digits) for i in range(32, 64)))
+        #Utilising bcrypt to generate random salt values
+        slt = bcrypt.gensalt(20)
 
         return slt
     
