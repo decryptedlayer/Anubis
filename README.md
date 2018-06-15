@@ -1,5 +1,7 @@
 # Anubis
-A quantum resistant peer-to-peer instant messenger utilising cure.
+
+**Abstract**
+A quantum resistant peer-to-peer instant messenger utilising a suite of cryptographic algorithms that makes it theortically infeasable for an adversary to break using a quantum computer.
 
 **Encryption methods to maximise resistance to quantum based attacks:**
 
