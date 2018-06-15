@@ -8,7 +8,7 @@ class UserAccount:
     #Main function for account creation
     def account(self):
         
-        #Opening JSON file which holds usernames hashed passwords and semi-random salts
+        #Opening JSON file which holds usernames, hashed passwords and associated salts
         try:
             with open("data.json", "r") as inFile:
                 self.database = json.load(inFile)
@@ -21,7 +21,7 @@ class UserAccount:
             invoke = str(input("New user or login (nu/l/x/d): "))
 
             #If new user command invoked
-            if invoke == "nu":
+            if invoke.lower() == "nu":
                 #Storing new username
                 user = str(input("Enter username: "))
                 #Using getpass to obfuscate password input to interpreter
@@ -49,7 +49,9 @@ class UserAccount:
                     print("Passwords match")
                     #Adding hashed password and salt to dictionary assigned to username as key
                     self.database[user]= [passTwo, slt]
-                    print(self.database)
+
+                    #Printing database for testing purposes
+                    "print(self.database)"
 
                     #Opening and writing new username and hashed password to JSON out file
                     with open("data.json", "w") as outFile:
@@ -58,10 +60,10 @@ class UserAccount:
 
                 #Passwords dont match return to initial state   
                 else:
-                    print("Password dont match")                    
+                    print("Passwords dont match")                    
 
             #If login command invoked
-            elif invoke == "l":                
+            elif invoke.lower() == "l":                
 
                 #Requesting user input username and password and storing values to variables
                 user = str(input("Enter username: "))
@@ -85,11 +87,11 @@ class UserAccount:
                     print("incorrect username or password combination")
 
             #Command used for exiting program        
-            elif invoke == "x":
+            elif invoke.lower() == "x":
                 break
 
             #Command used for testing purposes - prints out current dictionary of usernames and hashed passwords
-            elif invoke == "d":
+            elif invoke.lower() == "d":
                 print(self.database)
     
     #Funtion for hashing and salting
