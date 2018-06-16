@@ -2,7 +2,7 @@
 
 **Abstract**
 
-A conceptual quantum resistant peer-to-peer instant messenger utilising a suite of cryptographic algorithms that makes it theoretically infeasable for an adversary to break using a quantum computer.
+A theoretical quantum resistant peer-to-peer instant messenger utilising a suite of potential post quantum cryptographic algorithms, that makes it infeasable for an adversary with access to a sufficently powerful quantum computer to break.
 
 **Encryption methods to maximise resistance to quantum based attacks**
 
