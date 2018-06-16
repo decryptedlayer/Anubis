@@ -27,4 +27,5 @@ Messages are encrypted asymmetrically end to end, with only the ciphertext sent 
 
 **Supplimentary References**
 
-* https://www.uow.edu.au/~thomaspl/pdf/Rose11.pdf
+* https://www.uow.edu.au/~thomaspl/pdf/Rose11.pdf - Title: Lattice-Based Cryptography: A Practical Implementation, Author: Michael Rose
+
