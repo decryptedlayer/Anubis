@@ -47,7 +47,7 @@ class UserAccount:
                 elif passOne == passTwo:
                     print("Passwords match")
                     #Adding hashed password and salt to dictionary assigned to username as key
-                    self.database[user]= [passTwo, slt.decode('ascii')]
+                    self.database[user]= [passTwo, slt.decode('ascii'), "NetworkConnection.device_status()"]
 
                     #Printing database for testing purposes
                     "print(self.database)"
@@ -84,6 +84,12 @@ class UserAccount:
                         self.ip = NetworkConnection.device_status()
                         self.device = DeviceArchitecture.system_architecture()
                         print("IP: %s\nOS: %s" % (self.ip, self.device))
+                        #Updating database with new device IP address which user logged in with
+                        self.database[user][2] = self.ip
+                        #Writing change of IP address to database
+                        with open("data.json", "w") as outFile:
+                            json.dump(self.database, outFile)
+                        outFile.close()                        
                         self.userAccount(user)
                 else:
                     print("Incorrect username or password combination")
