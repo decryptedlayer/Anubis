@@ -1,9 +1,8 @@
 import getpass, json, random, string, binascii, bcrypt, sys
 from Local_Device import InterrogateDevice
 
-
 class UserAccount:
-
+    
     #Function for opening and returning database contents
     def open_database():
         #Opening JSON file which holds usernames, hashed passwords and associated salts
@@ -34,8 +33,7 @@ class UserAccount:
         #Checking if username is already taken
         if user in database:
             print("Username already exists, please use different username")
-            pass
-                
+            pass                
         #Checking if both passwords entered match
         elif passOne == passTwo:
             print("Passwords match")
