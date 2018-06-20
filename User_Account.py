@@ -40,7 +40,7 @@ class UserAccount:
                 elif passOne == passTwo:
                     print("Passwords match")
                     #Adding hashed password and salt to dictionary assigned to username as key
-                    self.database[user]= [passTwo, slt.decode('ascii'), "NetworkConnection.device_status()"]
+                    self.database[user]= [passTwo, slt.decode('ascii'), NetworkConnection.device_status()]
                     #Printing database for testing purposes
                     "print(self.database)"
                     #Opening and writing new username and hashed password to JSON out file
