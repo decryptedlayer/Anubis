@@ -1,6 +1,6 @@
 import getpass, json, random, string, binascii, bcrypt, sys
-from Device_Connectivity import NetworkConnection
-from Detect_Device import DeviceArchitecture
+from Local_Device import InterrogateDevice
+
 
 class UserAccount:
     
@@ -40,7 +40,7 @@ class UserAccount:
                 elif passOne == passTwo:
                     print("Passwords match")
                     #Adding hashed password and salt to dictionary assigned to username as key
-                    self.database[user]= [passTwo, slt.decode('ascii'), NetworkConnection.device_status()]
+                    self.database[user]= [passTwo, slt.decode('ascii'), InterrogateDevice.device_status(), InterrogateDevice.system_architecture()]
                     #Printing database for testing purposes
                     "print(self.database)"
                     #Opening and writing new username and hashed password to JSON out file
@@ -68,8 +68,8 @@ class UserAccount:
                     if passW == self.database[user][0]:
                         print("-----------------\nLogin successful!")                        
                         #Getting host IP after successful user account authentication
-                        self.ip = NetworkConnection.device_status()
-                        self.device = DeviceArchitecture.system_architecture()
+                        self.ip = InterrogateDevice.device_status()
+                        self.device = InterrogateDevice.system_architecture()
                         print("IP: %s\nOS: %s" % (self.ip, self.device))
                         #Updating database with new device IP address which user logged in with
                         self.database[user][2] = self.ip
