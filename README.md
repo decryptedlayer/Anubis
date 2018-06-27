@@ -12,6 +12,11 @@ Hash values utilise PBKDF2 (Password-Based Key Derivation Function 2) to reduce 
 Messages are encrypted asymmetrically end to end, with only the ciphertext sent through the clear. Quantum resistant public-key based cryptographic algorithms unrelated to integer factorisation and logarithmic problems will be used to ensure resistance to Shor's algorithm<sup> 3</sup> and Grover's algorithm. The public-key based algorithm used will either be based upon the the computational lattice problem<sup> 4</sup> or hardness of decoding a general linear code (McEliece cryptosystem)<sup> 5</sup>.
 To digitally sign each message and ensure both integrity and non-repudiation, DSA (Digital Signature Algorithm) will be used.
 
+**How clients are authenticated and messages sent and received**
+
+* Authentication Server:
+In order to authenticate users, Anubis uses a seperate authentication server for verification purposes similar in respects to Kerberos used in Windows. When a user successfully logs into Anubis they are assigned a TGT (Ticket Granting Ticket) which is a small encrypted identification file with a limited validity period. Once the user is authenticated, the TGT file which contains a session key, expiration date, and user IP address in order to protect against main-in-the-middle attacks. A database linked to the Authentication server will constantly update with the reissue of TGT assigned to users allowing for a constant and up to data source of users online and their associated IP addresses for communication. The authentication server also processes whether one user is authorised to message another, this is dependant if the two users are connection or not.
+
 **References**
 
 <sup>1 </sup>https://en.wikipedia.org/wiki/Grover%27s_algorithm
