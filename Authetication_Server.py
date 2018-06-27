@@ -1,6 +1,6 @@
 import socket, _thread
 
-class Server():
+class Authentication_Server():
 
     def receive_connection(self):
         #Defining host IP as server IP address which is where connections will be received
@@ -21,5 +21,5 @@ class Server():
             _thread.start_new_thread(self.receive_connection())
 
 if __name__ == "__main__":
-    Anubis = Server()
+    Anubis = Authentication_Server()
     Anubis.main()
