@@ -128,6 +128,12 @@ class UserAccount:
         
         return slt
 
+    def userIdentification():
+        uid = random.SystemRandom()
+        randid = uid.randint(0, sys.maxsize)
+
+        return randid
+        
     def userAccount(user):
         invoke = str(input("\nHi %s do you want to log-off your account or exit program (lf/x): " % (user[0].upper()+user[1:])))
         if invoke.lower() == "lf":
