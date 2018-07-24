@@ -9,8 +9,10 @@ A theoretical quantum resistant peer-to-peer instant messenger utilising a suite
 * Password encryption (Hashing and salting methods):
 Hash values utilise PBKDF2 (Password-Based Key Derivation Function 2) to reduce vulnerability to brute force attacks, with a selected key to byte map of 64 and 100 encryption rounds to reduce preimage collision and vulnerability to Grover's algorithm<sup> 1</sup>. Although BCrypt is theortically not weakened by Grover's algorithm<sup> 2</sup>, this added layer of vulnerability reduction is simply a precaution. Salt values are generated randomly through BCrypt, utilising 20 rounds ensure a higher level entropy between generated salt values.
 * Message encryption and verification (E2EE and signature methods):
-Messages are encrypted asymmetrically end to end, with only the ciphertext sent through the clear. Quantum resistant public-key based cryptographic algorithms unrelated to integer factorisation and logarithmic problems will be used to ensure resistance to Shor's algorithm<sup> 3</sup> and Grover's algorithm. The public-key based algorithm used will either be based upon the the computational lattice problem<sup> 4</sup> or hardness of decoding a general linear code (McEliece cryptosystem)<sup> 5</sup>.
-To digitally sign each message and ensure both integrity and non-repudiation, DSA (Digital Signature Algorithm) will be used.
+Messages will either be encrypted asymmetrically end to end, with only the ciphertext sent through the clear. Or will be encrypted and signed symmetrically.
+For quantum resistant asymmetric public-key based cryptographic algorithms unrelated to integer factorisation and logarithmic problems will be used to ensure resistance to Shor's algorithm<sup> 3</sup> and Grover's algorithm. The public-key based algorithm used will either be based upon the the computational lattice problem<sup> 4</sup> or hardness of decoding a general linear code (McEliece cryptosystem)<sup> 5</sup>.
+For quantum resistant symmetric key based cryptographic algorithms, AES-256 will be used. Though AES-256 is suceptible to Grovers algorithm, its ability to be conventionally broken by a quantum computer diminishes AES-256 strength to that of AES-128. This means that a conventional attack using a quantum computer will reduce keyspace, but will still make it resistant to being broken.
+To ensure integrity and authenticity of each message sent and received, Poly1305<sup> 6</sup> will be used. Poly1305 which is a cryptographic message authentication code, utilises the AES block cipher to expand its keyspace and authenticated a 128-bit (16 byte) authenticator of a variable length message, using a 128-bit AES key.
 
 **How clients are authenticated and messages sent and received**
 
@@ -30,6 +32,8 @@ In order to authenticate users, Anubis uses a seperate authentication server for
 <sup>4 </sup>https://en.wikipedia.org/wiki/Lattice_problem#Use_in_cryptography
 
 <sup>5 </sup>https://en.wikipedia.org/wiki/McEliece_cryptosystem
+
+<sup>6 </sup>https://en.wikipedia.org/wiki/Poly1305#Security
 
 **Supplimentary References**
 
