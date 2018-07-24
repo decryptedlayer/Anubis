@@ -1,5 +1,5 @@
 # Anubis
-
+![alt text](https://image.flaticon.com/icons/png/512/110/110200.png)
 **Abstract**
 
 A theoretical quantum resistant peer-to-peer instant messenger utilising a suite of potential post quantum cryptographic algorithms, that makes it infeasable for an adversary with access to a sufficently powerful quantum computer to break.
