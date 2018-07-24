@@ -1,4 +1,6 @@
-![alt text](https://www.shareicon.net/data/256x256/2016/03/20/737028_shapes_512x512.png)
+<p align="center">
+  ![alt text](https://www.shareicon.net/data/256x256/2016/03/20/737028_shapes_512x512.png)
+ </p>
 # Anubis 
 
 **Abstract**
