@@ -15,7 +15,7 @@ For quantum resistant asymmetric public-key based cryptographic algorithms unrel
 
 For quantum resistant symmetric key based cryptographic algorithms, AES-256 will be used. Though AES-256 is suceptible to Grovers algorithm, its ability to be conventionally broken by a quantum computer diminishes AES-256 strength to that of AES-128. This means that a conventional attack using a quantum computer will reduce keyspace, but will still make it resistant to being broken.
 
-To ensure integrity and authenticity of each message sent and received, Poly1305<sup> 6</sup> will be used. Poly1305 which is a cryptographic message authentication code, utilises the AES block cipher to expand its keyspace and authenticated a 128-bit (16 byte) authenticator of a variable length message, using a 128-bit AES key.
+To ensure integrity and authenticity of each message sent and received, Poly1305-AES<sup> 6</sup> will be used. Poly1305-AES which is a cryptographic message authentication code, utilises the AES block cipher to expand its keyspace ontop of a 128-bit (16 byte) computed authenticator of a variable-length message. The security of Poly1305-AES is nearly identical to the underlying AES block cipher algorithm. Consequently, the only way for a quantum computer to attack Poly1305-AES is through Grover's algorithm.
 
 **How clients are authenticated and messages sent and received**
 
