@@ -15,7 +15,7 @@ For quantum resistant asymmetric public-key based cryptographic algorithms unrel
 
 For quantum resistant symmetric key based cryptographic algorithms, AES-256 will be used. Though AES-256 is suceptible to Grover's quantum search algorithm, its ability to be theoretically broken by a conventional quantum attack is unknown. Though strength of AES-256 will be diminished, effectively breaking AES-256 through a practical attack (non brute force attack) means will still require some form of exhaustive keyspace seach such as Biclique cryptanalysis attack or Grover's quantum search algorithm.
 
-To ensure integrity and authenticity of each message sent and received, Poly1305-AES<sup> 6</sup> will be used. Poly1305-AES which is a cryptographic message authentication code, utilises the AES block cipher to expand its keyspace ontop of a 128-bit (16 byte) computed authenticator of a variable-length message. The security of Poly1305-AES is nearly identical to the underlying AES block cipher algorithm. Consequently, the only way for a quantum computer to attack Poly1305-AES is by using Grover's algorithm which will .
+To ensure integrity and authenticity of each message sent and received, Poly1305-AES<sup> 6</sup> will be used. Poly1305-AES which is a cryptographic message authentication code (MAC)<sup>7 </sup>, utilises the AES block cipher to expand its keyspace ontop of a 128-bit (16 byte) computed authenticator of a variable-length message. The security of Poly1305-AES is nearly identical to the underlying AES block cipher algorithm. Consequently, the only way for a quantum computer to attack Poly1305-AES is by using Grover's algorithm which will .
 
 **How clients are authenticated and messages sent and received**
 
@@ -37,6 +37,8 @@ In order to authenticate users, Anubis uses a seperate authentication server for
 <sup>5 </sup>https://en.wikipedia.org/wiki/McEliece_cryptosystem
 
 <sup>6 </sup>https://en.wikipedia.org/wiki/Poly1305#Security
+
+<sup>7 </sup>https://en.wikipedia.org/wiki/Message_authentication_code
 
 **Supplimentary References**
 
