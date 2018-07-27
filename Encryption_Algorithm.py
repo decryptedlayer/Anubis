@@ -1,47 +1,66 @@
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 
+class KeyAccess:
+    def __init__(self):
+        self.key = get_random_bytes(32)
 
-def keyGeneration():    
-    key = get_random_bytes(32)
-    file_out = open("key.bin", "wb")
-    file_out.write(key)
-    file_out.close()
-    
-def readKey():
-    file_in = open("key.bin", "rb")
-    key = file_in.read()
+    def keyGeneration(self, keyFile):    
+        file_out = open(keyFile, "wb")
+        file_out.write(self.key)
+        file_out.close()
+        
+    def readKey(self, keyFile):
+        file_in = open(keyFile, "rb")
+        self.key = file_in.read()
 
-    return key
+        return self.key
 
-def encrypt(p):
-    k = readKey()
-    cipher = AES.new(k, AES.MODE_EAX)
-    ciphertext, tag = cipher.encrypt_and_digest(p)
+class Encryption:
     
-    return cipher.nonce, tag, ciphertext
+    def __init__(self):
+        accessKey = KeyAccess()
+        keyFile = "key.bin"
+        self.keyRead = accessKey.readKey(keyFile)
+        
+    def encrypt(self, p):
+        cipher = AES.new(self.keyRead, AES.MODE_EAX)
+        ciphertext, tag = cipher.encrypt_and_digest(p)
+        
+        return cipher.nonce, tag, ciphertext
 
-def readCiphertext(file):
-    nonce, tag, ciphertext = [inFile.read(x) for x in (16, 16, -1)]
-    return nonce,
-    
-def decrypt(key, file):
-    inFile = open(file, "rb")
-    nonce, tag, ciphertext = [inFile.read(x) for x in (16, 16, -1)]
-    cipher = AES.new(key, AES.MODE_EAX, nonce)
-    data = cipher.decrypt_and_verify(ciphertext, tag)
+    def readCiphertext(self, file):
+        inFile = open(file, "rb")
+        nonce, tag, ciphertext = [inFile.read(x) for x in (16, 16, -1)]
+        return nonce,
+        
+    def decrypt(self, file):
+        inFile = open(file, "rb")
+        nonce, tag, ciphertext = [inFile.read(x) for x in (16, 16, -1)]
+        cipher = AES.new(self.keyRead, AES.MODE_EAX, nonce)
+        data = cipher.decrypt_and_verify(ciphertext, tag)
 
-    return data
-    
-def encryptionTesting(plaintext):
-    
+        return data
+
+kAccess = KeyAccess()
+encryptAlgo = Encryption()
+keyFile = "key.bin"
+def key_access_testing(keyFile):
     try:
-        readCiphertext(file)
-        encrypt(plaintext, 01462673152
-                key, file)
-        decrypt(key, file)
+        kAccess.keyGeneration(keyFile)
+        print(kAccess.readKey(keyFile))
+        return True
     except:
-        pass
-    
-    return readCiphertext(file)
+        return False
 
+def symmetric_encryption_testing(keyFile):
+
+    plaintext = b"hello"
+    encrypting = encryptAlgo.encrypt(plaintext)
+    readCipher = encryptAlgo.readCiphertext(keyFile)
+    decrypting = encryptAlgo.decrypt(keyFile)
+    print(decrypting)
+
+    
+print(symmetric_encryption_testing(keyFile))
+    
