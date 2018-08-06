@@ -1,7 +1,7 @@
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 
-class AES_EAX:
+class AES_GCM:
     def __init__(self):        
         self.data = b"hello"
         
