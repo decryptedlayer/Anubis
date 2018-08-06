@@ -52,7 +52,7 @@ In order to authenticate users, Anubis uses a seperate authentication server for
 - [x] this is a complete item
 - [ ] this is an incomplete item
 
-**References**
+## References
 
 <sup>1 </sup>https://en.wikipedia.org/wiki/Grover%27s_algorithm
 
