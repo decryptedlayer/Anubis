@@ -1,4 +1,4 @@
-<p align="right">
+<p align="left">
 <img src="https://www.shareicon.net/data/256x256/2016/03/20/737028_shapes_512x512.png" width="50" height="50"></img>
 </p>
 
