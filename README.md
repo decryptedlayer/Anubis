@@ -26,6 +26,7 @@ For quantum resistant symmetric key based cryptographic algorithms, AES-256 will
 **Block Cipher modes of operation**
 
 Common block cipher modes of operation include: GCM<sup> 6</sup> (Galois Counter Mode)
+
 The AES encryption mode which will be implemented is GCM. In CBC<sup> 7</sup>(Cipher Block Chain) blocks of data are encrypted by taking the current plaintext block and applying an XOR (Exclusive-Or) against the previous ciphertext block (or IV). The result of this XOR is sent through the block cipher, where the final output of the block cipher is the ciphertext block. Unlike CBC, GCM provides both privacy (through encryption) and integrity (through authentication). To provide encryption, GCM maintains a counter for each block of data. It sends the current value of the counter through the block cipher and takes the output of the block cipher which it then XOR against the plain text in order to form the ciphertext. Through encryption an authentication tag is produced to verify the integrity of the data. The encrypted text output from GCM contains the IV, ciphertext and authentication produced in parallel, whereas CBC produces only the IV and ciphertext due to its inherent lack of authentication. GCM is considered more versatile than CBC due to it's speed and ability to authenticate and encrypt in parallel.
 
 
