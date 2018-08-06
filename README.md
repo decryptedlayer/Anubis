@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://www.shareicon.net/data/256x256/2016/03/20/737028_shapes_512x512.png" width="150" height="150"></img>
+<img src="https://www.shareicon.net/data/256x256/2016/03/20/737028_shapes_512x512.png" width="50" height="50"></img>
 </p>
 
 # Anubis 
