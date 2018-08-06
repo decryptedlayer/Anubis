@@ -37,7 +37,7 @@ The AES encryption mode which will be implemented is GCM. In CBC blocks of data 
 
 **Message Authentication Methods**
 
-To ensure integrity and authenticity of each message sent and received, Poly1305-AES<sup> 10</sup> will be used. Poly1305-AES which is a cryptographic message authentication code (MAC)<sup>11 </sup>, utilises the AES block cipher to expand its keyspace ontop of a 128-bit (16 byte) computed authenticator of a variable-length message. The security of Poly1305-AES is nearly identical to the underlying AES block cipher algorithm. Consequently, the only way for a quantum computer to attack Poly1305-AES is by using Grover's quantum search algorithm which will still take an exponential amount of time to break.
+To ensure integrity and authenticity of each message sent and received, Poly1305-AES<sup> 11</sup> will be used. Poly1305-AES which is a cryptographic message authentication code (MAC)<sup>12 </sup>, utilises the AES block cipher to expand its keyspace ontop of a 128-bit (16 byte) computed authenticator of a variable-length message. The security of Poly1305-AES is nearly identical to the underlying AES block cipher algorithm. Consequently, the only way for a quantum computer to attack Poly1305-AES is by using Grover's quantum search algorithm which will still take an exponential amount of time to break.
 
   **Client Authentication Methods**
 
@@ -77,9 +77,9 @@ In order to authenticate users, Anubis uses a seperate authentication server for
 
 <sup>10 </sup>https://en.wikipedia.org/wiki/OCB_mode
 
-<sup>10 </sup>https://en.wikipedia.org/wiki/Poly1305#Security
+<sup>11 </sup>https://en.wikipedia.org/wiki/Poly1305#Security
 
-<sup>11 </sup>https://en.wikipedia.org/wiki/Message_authentication_code
+<sup>12 </sup>https://en.wikipedia.org/wiki/Message_authentication_code
 
 **Supplimentary References**
 
