@@ -25,15 +25,21 @@ For quantum resistant symmetric key based cryptographic algorithms, AES-256 will
 
 **Block Cipher modes of operation**
 
-Common block cipher modes of operation include: GCM<sup> 6</sup> (Galois Counter Mode)
+Common block cipher modes of operation include: 
 
-The AES encryption mode which will be implemented is GCM. In CBC<sup> 7</sup>(Cipher Block Chain) blocks of data are encrypted by taking the current plaintext block and applying an XOR (Exclusive-Or) against the previous ciphertext block (or IV). The result of this XOR is sent through the block cipher, where the final output of the block cipher is the ciphertext block. Unlike CBC, GCM provides both privacy (through encryption) and integrity (through authentication). To provide encryption, GCM maintains a counter for each block of data. It sends the current value of the counter through the block cipher and takes the output of the block cipher which it then XOR against the plain text in order to form the ciphertext. Through encryption an authentication tag is produced to verify the integrity of the data. The encrypted text output from GCM contains the IV, ciphertext and authentication produced in parallel, whereas CBC produces only the IV and ciphertext due to its inherent lack of authentication. GCM is considered more versatile than CBC due to it's speed and ability to authenticate and encrypt in parallel.
+* GCM<sup> 6</sup> (Galois Counter Mode)
+* CBC<sup> 7</sup>(Cipher Block Chain)
+* CFB<sup> 8</sup>(Cipher Feed Back)
+* CTR<sup> 9</sup>(Counter Mode)
+
+
+The AES encryption mode which will be implemented is GCM. In CBC blocks of data are encrypted by taking the current plaintext block and applying an XOR (Exclusive-Or) against the previous ciphertext block (or IV). The result of this XOR is sent through the block cipher, where the final output of the block cipher is the ciphertext block. Unlike CBC, GCM provides both privacy (through encryption) and integrity (through authentication). To provide encryption, GCM maintains a counter for each block of data. It sends the current value of the counter through the block cipher and takes the output of the block cipher which it then XOR against the plain text in order to form the ciphertext. Through encryption an authentication tag is produced to verify the integrity of the data. The encrypted text output from GCM contains the IV, ciphertext and authentication produced in parallel, whereas CBC produces only the IV and ciphertext due to its inherent lack of authentication. GCM is considered more versatile than CBC due to it's speed and ability to authenticate and encrypt in parallel.
 
 
 
 **Message Authentication Methods**
 
-To ensure integrity and authenticity of each message sent and received, Poly1305-AES<sup> 8</sup> will be used. Poly1305-AES which is a cryptographic message authentication code (MAC)<sup>9 </sup>, utilises the AES block cipher to expand its keyspace ontop of a 128-bit (16 byte) computed authenticator of a variable-length message. The security of Poly1305-AES is nearly identical to the underlying AES block cipher algorithm. Consequently, the only way for a quantum computer to attack Poly1305-AES is by using Grover's quantum search algorithm which will still take an exponential amount of time to break.
+To ensure integrity and authenticity of each message sent and received, Poly1305-AES<sup> 10</sup> will be used. Poly1305-AES which is a cryptographic message authentication code (MAC)<sup>11 </sup>, utilises the AES block cipher to expand its keyspace ontop of a 128-bit (16 byte) computed authenticator of a variable-length message. The security of Poly1305-AES is nearly identical to the underlying AES block cipher algorithm. Consequently, the only way for a quantum computer to attack Poly1305-AES is by using Grover's quantum search algorithm which will still take an exponential amount of time to break.
 
 **How clients are authenticated and messages sent and received**
 
@@ -58,9 +64,13 @@ In order to authenticate users, Anubis uses a seperate authentication server for
 
 <sup>7 </sup>https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_Block_Chaining_(CBC)
 
-<sup>8 </sup>https://en.wikipedia.org/wiki/Poly1305#Security
+<sup>8 </sup>https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CFB
 
-<sup>9 </sup>https://en.wikipedia.org/wiki/Message_authentication_code
+<sup>9 </sup>https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Counter_(CTR)
+
+<sup>10 </sup>https://en.wikipedia.org/wiki/Poly1305#Security
+
+<sup>11 </sup>https://en.wikipedia.org/wiki/Message_authentication_code
 
 **Supplimentary References**
 
