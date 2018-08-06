@@ -47,10 +47,12 @@ In order to authenticate users, Anubis uses a seperate authentication server for
 
 ## Todo
 
-- [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
-- [x] list syntax required (any unordered or ordered list supported)
-- [x] this is a complete item
-- [ ] this is an incomplete item
+**Todo list defining the early items for completion in the early project stage**
+
+- [x] Research, select components and outline structure
+- [x] Develop individual components
+- [ ] Link individual components together
+- [ ] Initial testing phase
 
 ## References
 
