@@ -8,9 +8,6 @@ class AES_GCM:
         #32 random byted for 256-bit encryption key
         self.key = get_random_bytes(32)
 
-        #
-        self.AES_Mode = AES.MODE_GCM
-
     def writeKey(self, key):
         file_out = open("key.bin", "wb")
         file_out.write(key) 
