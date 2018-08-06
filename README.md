@@ -25,7 +25,7 @@ For quantum resistant symmetric key based cryptographic algorithms, AES-256 will
 
 The AES encryption mode which will be implemented is GCM<sup> 2</sup>(Galois Counter Mode). GCM utilises parallelism, encrypting and authenticating the key simultaneously on generation with encryption and decryption.
 
-**Message Authentication**
+**Message Authentication Methods**
 
 To ensure integrity and authenticity of each message sent and received, Poly1305-AES<sup> 7</sup> will be used. Poly1305-AES which is a cryptographic message authentication code (MAC)<sup>8 </sup>, utilises the AES block cipher to expand its keyspace ontop of a 128-bit (16 byte) computed authenticator of a variable-length message. The security of Poly1305-AES is nearly identical to the underlying AES block cipher algorithm. Consequently, the only way for a quantum computer to attack Poly1305-AES is by using Grover's quantum search algorithm which will still take an exponential amount of time to break.
 
