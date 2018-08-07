@@ -50,9 +50,18 @@ Both GCM AND CCM are block ciphers which combine both confidentiality and authen
 
 #### Outline of Password Encryption Methods
 
+Hashing Algorithms:
+
 * BCrypt
 * PBKDF2 (Password-Based Key Derivation Function 2)
+* Argon 2
+* SHA-512
 
+**Comparison of BCrypt and PBKDF2**
+
+
+
+**Conclusion**
 Password encryption will employ methods for both hashing and salting. Hash values will utilise BCrypt password hashing function to reduce the vulnerability of brute force attacks, with a selected key to byte map of 64 and 100 encryption rounds to reduce preimage collision and vulnerability to Grover's algorithm<sup> 14</sup>. The hashing algorithm used will be BCrypt's implementation in Python. The use of BCrypt is due to it theoretically not being weakened by Grover's algorithm<sup> 15</sup>.
 Salt values will be generated randomly through BCrypt, utilising 20 rounds to ensure a higher level entropy between generated salt values.
 
