@@ -6,7 +6,7 @@
 
 ### Abstract
 
-A theoretical quantum resistant pseudonymous peer-to-peer instant messenger, utilising a suite of potential post quantum cryptographic algorithms that makes it infeasable for an adversary with access to a sufficently powerful quantum computer to break. The messenger will employ either Asymmetric or Symmetric quantum resistant encryption methods to encrypt and decrypt messages sent and received, BCrypt for hashing and salts to encrypt user passwords and a modus-operandi on not storing any and all current and historical information on messages sent and received, only a database of pseudonymous users.
+A theoretical quantum resistant pseudonymous peer-to-peer instant messenger, utilising a suite of potential post quantum cryptographic algorithms that makes it infeasable for an adversary with access to a sufficently powerful quantum computer to break. The messenger will employ either Asymmetric or Symmetric quantum resistant encryption algorithms to encrypt and decrypt messages sent and received through the clear, BCrypt for hashing and salts to encrypt user passwords and a modus-operandi of not storing any and all current and historical data.
 
 ### Research
 
