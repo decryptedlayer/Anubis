@@ -12,7 +12,7 @@ A theoretical quantum resistant pseudonymous peer-to-peer instant messenger, uti
 
 #### Asymmetric Encryption Methods
 
-Asymmetric candidates theoretically quantum resistant:
+Candidates for Asymmetric encryption:
 * Lattice Based Cryptography (Implementations include NTRU and New Hope)
 * Code Based Cryptography (Implementations include McEliece Cryptosystem) 
 
@@ -20,7 +20,7 @@ Quantum resistant asymmetric public-key based cryptographic algorithms unrelated
 
 #### Symmetric Encryption Methods
 
-Symmetric candidates theoretically quantum resistant:
+Candidates for Symmetric encryption:
 * AES-256
 
 For quantum resistant symmetric key based cryptographic algorithms, AES-256 will be used. Though AES-256 has some suceptibility to Grover's quantum search algorithm, a method to theoretically break AES-256 completely (Akin to that of RSA and Shor's algorithm) by a conventional quantum attack has yet to be discovered. Effectively breaking AES-256 through means of a practical attack (non brute force attack) will still require some form of exhaustive keyspace search like what is used today. Examples of which include a Biclique cryptanalysis attack or an implementation of Grover's quantum search algorithm on a Quantum computer.
