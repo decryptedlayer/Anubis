@@ -97,10 +97,6 @@ Hash values utilise PBKDF2 (Password-Based Key Derivation Function 2) to reduce 
 
 <sup>15 </sup>https://stackoverflow.com/questions/2768807/quantum-computing-and-encryption-breaking
 
-<sup>16 </sup>https://en.wikipedia.org/wiki/Poly1305#Security
-
-<sup>17 </sup>https://en.wikipedia.org/wiki/Message_authentication_code
-
 **Supplimentary References**
 
 * Title: Lattice-Based Cryptography: A Practical Implementation, Author: Michael Rose - https://www.uow.edu.au/~thomaspl/pdf/Rose11.pdf
