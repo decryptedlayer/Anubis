@@ -28,22 +28,22 @@ For quantum resistant symmetric key based cryptographic algorithms, AES-256 will
 
 **Block Cipher Confidentiality Modes** 
 
-* ECB<sup> 7</sup> (Electronic Codebook)
-* CBC<sup> 8</sup> (Cipher Block Chain)
-* OFB<sup> 9</sup> (Output Feedback
+* ECB<sup> 6</sup> (Electronic Codebook)
+* CBC<sup> 7</sup> (Cipher Block Chain)
+* OFB<sup> 8</sup> (Output Feedback
 * CFB<sup> 9</sup> (Cipher FeedBack)
 * CTR<sup> 10</sup> (Counter Mode)
 * XTS-AES<sup> 11</sup> (XEX-Based Tweaked-Codebook Mode with Ciphertext stealing)
 * FF1<sup> 12</sup> (Format-Preserving Feistel-Based Encryption Mode 1)
-* FF3<sup> 13</sup> (Format-Preserving Feistel-Based Encryption Mode 1) - no longer suitable as a general-purpose FPE method due to vulnerability *NIST conclusion 12/04/2017*
+* FF3<sup> 13</sup> (Format-Preserving Feistel-Based Encryption Mode 1) - no longer suitable as a general-purpose FPE (Format-preserving encryption) method due to vulnerability *NIST conclusion 12/04/2017*
 
 **Block Cipher Combined Modes for Confidentiality and Authentication**
 
-* GCM<sup> 6</sup> (Galois Counter Mode)
-* CCM<sup> 7</sup> (Counter with CBC-MAC)
-* KW
-* KWP
-* TKW
+* GCM<sup> 14</sup> (Galois Counter Mode)
+* CCM<sup> 15</sup> (Counter with CBC-MAC)
+* KW<sup> 16</sup> (Key Wrap)
+* KWP<sup> 17</sup> (Key Wrap with Padding)
+* TKW<sup> 18</sup> (TDEA Key Wrap)
 
 **Comparison of GCM and CBC**
 
