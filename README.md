@@ -35,7 +35,7 @@ For quantum resistant symmetric key based cryptographic algorithms, AES-256 will
 * CTR<sup> 10</sup> (Counter Mode)
 * XTS-AES<sup> 11</sup> (XEX-Based Tweaked-Codebook Mode with Ciphertext stealing)
 * FF1<sup> 12</sup> (Format-Preserving Feistel-Based Encryption Mode 1)
-* FF3<sup> 12</sup> (Format-Preserving Feistel-Based Encryption Mode 1) - **no longer suitable as a general-purpose FPE (Format-preserving encryption) method due to vulnerability - *NIST conclusion 12/04/2017**
+* FF3<sup> 12</sup> (Format-Preserving Feistel-Based Encryption Mode 1) - **no longer suitable as a general-purpose FPE (Format-preserving encryption) method due to vulnerability - NIST conclusion 12/04/2017**
 
 **Block Cipher Combined Modes for Confidentiality and Authentication**
 
