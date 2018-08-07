@@ -13,8 +13,8 @@ A theoretical quantum resistant pseudonymous peer-to-peer instant messenger, uti
 #### Asymmetric Encryption Methods
 
 Asymmetric candidates theoretically quantum resistant:
-* Lattice Based Cryptography
-* McEliece 
+* Lattice Based Cryptography (Implementations include NTRU and New Hope)
+* Code Based Cryptography (Implementations include McEliece Cryptosystem) 
 
 Quantum resistant asymmetric public-key based cryptographic algorithms unrelated to integer factorisation and logarithmic problems will be used to ensure resistance to Shor's algorithm<sup> 1</sup> and Grover's algorithm. The public-key based algorithm used will either be based upon the computational lattice problem<sup> 2</sup> or hardness of decoding a general linear code (McEliece cryptosystem)<sup> 5</sup>, both of which theoretically have the greatest known resistance to an attack by a quantum computer.
 
