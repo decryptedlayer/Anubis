@@ -1,6 +1,5 @@
 
 # Anubis
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 <p align="left">
 <img src="https://www.shareicon.net/data/256x256/2016/03/20/737028_shapes_512x512.png" width="50" height="50"></img>
 </p> 
@@ -75,8 +74,6 @@ In order to authenticate users, Anubis uses a seperate authentication server for
 - [ ] Initial testing phase
 
 ## References
-
-
 
 <sup>1 </sup>https://arxiv.org/abs/quant-ph/9508027
 
