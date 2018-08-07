@@ -1,5 +1,5 @@
 <p align="left">
-<img src="https://vignette.wikia.nocookie.net/darkmetal/images/1/14/Anubis-badge-01.png/revision/latest?cb=20150720212614" width="150" height="150"></img>
+<img src="http://mythologian.net/wp-content/uploads/2018/01/Eye-of-Ra-Symbol-and-Its-Meaning.png" width="150" height="150"></img>
 </p>
 
 # Anubis
