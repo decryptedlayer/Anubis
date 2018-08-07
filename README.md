@@ -1,7 +1,7 @@
 
 # Anubis
 <p align="left">
-<img src="https://vignette.wikia.nocookie.net/darkmetal/images/1/14/Anubis-badge-01.png/revision/latest?cb=20150720212614" width="50" height="50"></img>
+<img src="https://vignette.wikia.nocookie.net/darkmetal/images/1/14/Anubis-badge-01.png/revision/latest?cb=20150720212614" width="150" height="150"></img>
 </p> 
 
 ## Abstract
