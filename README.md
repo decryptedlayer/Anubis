@@ -53,16 +53,6 @@ Both GCM AND CCM are block ciphers which combine both confidentiality and authen
 * Password encryption (Hashing and salting methods):
 Hash values utilise PBKDF2 (Password-Based Key Derivation Function 2) to reduce vulnerability to brute force attacks, with a selected key to byte map of 64 and 100 encryption rounds to reduce preimage collision and vulnerability to Grover's algorithm<sup> 14</sup>. Although BCrypt is theoretically not weakened by Grover's algorithm<sup> 15</sup>, this added layer of vulnerability reduction is simply a precaution. Salt values are generated randomly through BCrypt, utilising 20 rounds to ensure a higher level entropy between generated salt values.
 
-
-### Todo
-
-**Todo list defining the items for completion in the early project stage**
-
-- [x] Research, select components and outline structure
-- [x] Develop individual components
-- [ ] Link individual components together
-- [ ] Initial testing phase
-
 ### References
 
 <sup>1 </sup>https://arxiv.org/abs/quant-ph/9508027
