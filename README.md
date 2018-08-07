@@ -1,9 +1,11 @@
+
 # Anubis
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 <p align="left">
 <img src="https://www.shareicon.net/data/256x256/2016/03/20/737028_shapes_512x512.png" width="50" height="50"></img>
 </p> 
 
-<center>## Abstract</center>
+## Abstract
 
 A theoretical quantum resistant peer-to-peer instant messenger utilising a suite of potential post quantum cryptographic algorithms, that makes it infeasable for an adversary with access to a sufficently powerful quantum computer to break.
 
