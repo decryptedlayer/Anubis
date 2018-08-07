@@ -23,7 +23,7 @@ For quantum resistant symmetric key based cryptographic algorithms, AES-256 will
 Block Cipher Confidentiality Modes:
 
 * ECB<sup> 4</sup> (Electronic Codebook)
-* CBC<sup> 5</sup> (Cipher Block Chain) - **Depreciated - Vulnerable to Padding Oracle Attack and Timing Attacks**
+* CBC<sup> 5</sup> (Cipher Block Chain) - **Depreciated in TLS 1.3 and difficult to implement - Vulnerable to Padding Oracle Attack and Timing Attacks**
 * OFB<sup> 6</sup> (Output Feedback)
 * CFB<sup> 7</sup> (Cipher FeedBack)
 * CTR<sup> 8</sup> (Counter Mode)
