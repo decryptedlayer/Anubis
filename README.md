@@ -46,7 +46,7 @@ In order to authenticate users, Anubis uses a seperate authentication server for
 
 ## Todo
 
-**Todo list defining the early items for completion in the early project stage**
+**Todo list defining the items for completion in the early project stage**
 
 - [x] Research, select components and outline structure
 - [x] Develop individual components
