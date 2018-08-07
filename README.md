@@ -7,6 +7,8 @@
 
 A theoretical quantum resistant peer-to-peer instant messenger utilising a suite of potential post quantum cryptographic algorithms, that makes it infeasable for an adversary with access to a sufficently powerful quantum computer to break.
 
+# Project Research
+
 **Outline of Password and Message Encryption Methods**
 
 * Password encryption (Hashing and salting methods):
