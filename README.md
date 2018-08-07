@@ -30,20 +30,20 @@ For quantum resistant symmetric key based cryptographic algorithms, AES-256 will
 
 * ECB<sup> 6</sup> (Electronic Codebook)
 * CBC<sup> 7</sup> (Cipher Block Chain)
-* OFB<sup> 8</sup> (Output Feedback
+* OFB<sup> 8</sup> (Output Feedback)
 * CFB<sup> 9</sup> (Cipher FeedBack)
 * CTR<sup> 10</sup> (Counter Mode)
 * XTS-AES<sup> 11</sup> (XEX-Based Tweaked-Codebook Mode with Ciphertext stealing)
 * FF1<sup> 12</sup> (Format-Preserving Feistel-Based Encryption Mode 1)
-* FF3<sup> 13</sup> (Format-Preserving Feistel-Based Encryption Mode 1) - no longer suitable as a general-purpose FPE (Format-preserving encryption) method due to vulnerability *NIST conclusion 12/04/2017*
+* FF3<sup> 12</sup> (Format-Preserving Feistel-Based Encryption Mode 1) - no longer suitable as a general-purpose FPE (Format-preserving encryption) method due to vulnerability *NIST conclusion 12/04/2017*
 
 **Block Cipher Combined Modes for Confidentiality and Authentication**
 
-* GCM<sup> 14</sup> (Galois Counter Mode)
-* CCM<sup> 15</sup> (Counter with CBC-MAC)
-* KW<sup> 16</sup> (Key Wrap)
-* KWP<sup> 17</sup> (Key Wrap with Padding)
-* TKW<sup> 18</sup> (TDEA Key Wrap)
+* GCM<sup> 13</sup> (Galois Counter Mode)
+* CCM<sup> 14</sup> (Counter with CBC-MAC)
+* KW<sup> 15</sup> (Key Wrap)
+* KWP<sup> 15</sup> (Key Wrap with Padding)
+* TKW<sup> 15</sup> (TDEA Key Wrap)
 
 **Comparison of GCM and CBC**
 
@@ -56,7 +56,7 @@ Both GCM AND CCM are block ciphers which combine both confidentiality and authen
 
 **Message Authentication Methods**
 
-To ensure integrity and authenticity of each message sent and received, Poly1305-AES<sup> 12</sup> will be used. Poly1305-AES which is a cryptographic message authentication code (MAC)<sup>13 </sup>, utilises the AES block cipher to expand its keyspace ontop of a 128-bit (16 byte) computed authenticator of a variable-length message. The security of Poly1305-AES is nearly identical to the underlying AES block cipher algorithm. Consequently, the only way for a quantum computer to attack Poly1305-AES is by using Grover's quantum search algorithm which will still take an exponential amount of time to break.
+To ensure integrity and authenticity of each message sent and received, Poly1305-AES<sup> 16</sup> will be used. Poly1305-AES which is a cryptographic message authentication code (MAC)<sup>17 </sup>, utilises the AES block cipher to expand its keyspace ontop of a 128-bit (16 byte) computed authenticator of a variable-length message. The security of Poly1305-AES is nearly identical to the underlying AES block cipher algorithm. Consequently, the only way for a quantum computer to attack Poly1305-AES is by using Grover's quantum search algorithm which will still take an exponential amount of time to break.
 
   **Client Authentication Methods**
 
@@ -86,19 +86,29 @@ In order to authenticate users, Anubis uses a seperate authentication server for
 
 <sup>5 </sup>https://en.wikipedia.org/wiki/McEliece_cryptosystem
 
-<sup>6 </sup>https://en.wikipedia.org/wiki/Galois/Counter_Mode
+<sup>6 </sup>https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Electronic_Codebook_(ECB)
 
-<sup>8 </sup>https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_Block_Chaining_(CBC)
+<sup>7 </sup>https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_Block_Chaining_(CBC)
+
+<sup>8 </sup>https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Output_Feedback_(OFB)
 
 <sup>9 </sup>https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CFB
 
 <sup>10 </sup>https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Counter_(CTR)
 
-<sup>11 </sup>https://en.wikipedia.org/wiki/OCB_mode
+<sup>11 </sup>https://en.wikipedia.org/wiki/Disk_encryption_theory#XEX-based_tweaked-codebook_mode_with_ciphertext_stealing_(XTS)
 
-<sup>12 </sup>https://en.wikipedia.org/wiki/Poly1305#Security
+<sup>12 </sup>https://en.wikipedia.org/wiki/Format-preserving_encryption#Acceptance_of_FPE_algorithms_by_standards_authorities
 
-<sup>13 </sup>https://en.wikipedia.org/wiki/Message_authentication_code
+<sup>13 </sup>https://en.wikipedia.org/wiki/Galois/Counter_Mode
+
+<sup>14 </sup>https://en.wikipedia.org/wiki/CCM_mode
+
+<sup>15 </sup>https://en.wikipedia.org/wiki/Key_Wrap
+
+<sup>16 </sup>https://en.wikipedia.org/wiki/Poly1305#Security
+
+<sup>17 </sup>https://en.wikipedia.org/wiki/Message_authentication_code
 
 **Supplimentary References**
 
