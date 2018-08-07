@@ -20,7 +20,7 @@ For quantum resistant symmetric key based cryptographic algorithms, AES-256 will
 
 #### Block Cipher Techniques as outlined by NIST
 
-**Block Cipher Confidentiality Modes** 
+Block Cipher Confidentiality Modes:
 
 * ECB<sup> 4</sup> (Electronic Codebook)
 * CBC<sup> 5</sup> (Cipher Block Chain)
@@ -31,7 +31,7 @@ For quantum resistant symmetric key based cryptographic algorithms, AES-256 will
 * FF1<sup> 10</sup> (Format-Preserving Feistel-Based Encryption Mode 1)
 * FF3<sup> 10</sup> (Format-Preserving Feistel-Based Encryption Mode 1) - **no longer suitable as a general-purpose FPE (Format-preserving encryption) method due to vulnerability - NIST conclusion 12/04/2017**
 
-**Block Cipher Combined Modes for Confidentiality and Authentication**
+Block Cipher Combined Modes for Confidentiality and Authentication:
 
 * GCM<sup> 11</sup> (Galois Counter Mode)
 * CCM<sup> 12</sup> (Counter with CBC-MAC)
