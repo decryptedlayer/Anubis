@@ -54,10 +54,10 @@ class AES_GCM:
     def main(self):
         print(self.encryption())
         print(self.decryption())
-        #print(self.importKey())
+        print(self.importKey())
         print(self.keyIntegrityCheck())
 
 if __name__ == "__main__":
-    AESEncryption = AES_EAX()
+    AESEncryption = AES_GCM()
     AESEncryption.main()
 
