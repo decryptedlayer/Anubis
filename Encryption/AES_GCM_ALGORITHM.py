@@ -10,9 +10,8 @@ class AES_GCM_ALGORITHM:
         self.header = b"Test"
         self.data = b"Hello"
         self.timestamp = (datetime.datetime.fromtimestamp(time.time())
-                            .strftime("%Y-%m-%d %H:%M:%S"))
+                            .strftime("%Y-%m-%d %H:%M:%S"))        
         
-
     def GCM_Encryption(self):        
         try:
             self.key = get_random_bytes(32)
@@ -21,9 +20,14 @@ class AES_GCM_ALGORITHM:
             ciphertext, tag = cipher.encrypt_and_digest(self.data)
             json_output = self.JSON_Output(cipher, self.header, ciphertext, tag)
 
+        except Exception as inst:
+            print(type(inst))
+            print(inst.args)
+            print(inst)
+
+        finally:
             return json_output
-        except:
-            return False
+        
 
     def GCM_Decryption(self):
         try:
@@ -34,11 +38,14 @@ class AES_GCM_ALGORITHM:
             cipher.update(jv["header"])
             plaintext = cipher.decrypt_and_verify(jv["ciphertext"], jv["tag"])
 
+        
+        except Exception as inst:
+            print(type(inst))
+            print(inst.args)
+            print(inst)
+
+        finally:
             return plaintext
-        except:
-
-            return False
-
 
 
     def JSON_Open_Database(self):
@@ -46,9 +53,12 @@ class AES_GCM_ALGORITHM:
             with open("data.json", "r") as inFile:
                 database = json.load(inFile)
             inFile.close()
-            return database
+
         except:
             pass
+        
+        finally:
+            return database
 
     def JSON_Save_Database(self, json_k, json_v):        
         result_dump = json.dumps(dict(zip(json_k, json_v)))
@@ -66,7 +76,6 @@ class AES_GCM_ALGORITHM:
         return key_dump
 
     def main(self):
-        print(self.timeNow())
         print(self.GCM_Encryption())
         print(self.GCM_Decryption())
         #print(self.JSON_Open_Database())
