@@ -1,6 +1,6 @@
-<p align="center">
+<!--<p align="center">
 <img src="http://mythologian.net/wp-content/uploads/2018/01/Eye-of-Ra-Symbol-and-Its-Meaning.png" width="150" height="150"></img>
-</p>
+</p>-->
 
 # Anubis
 
