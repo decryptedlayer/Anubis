@@ -81,7 +81,7 @@ class AES_GCM_ALGORITHM:
         
         return key_dump
 
-    #Function for running and testing algorithm
+    #Function for running and testing encryption and decryption functions individually
     def Algorithm_Test(self):
         pHeader = b"Test"
         pData = b"T"
@@ -119,3 +119,7 @@ class AES_GCM_ALGORITHM:
 if __name__ == "__main__":
     AESGCM = AES_GCM_ALGORITHM()
     AESGCM.main()
+
+
+
+
