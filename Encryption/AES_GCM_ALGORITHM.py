@@ -1,4 +1,5 @@
 import json, time, datetime
+from timeit import default_timer as timer
 from base64 import b64encode
 from base64 import b64decode
 from Crypto.Cipher import AES
@@ -6,39 +7,39 @@ from Crypto.Random import get_random_bytes
 
 class AES_GCM_ALGORITHM:
 
-    def __init__(self):
-        #Initialising example header and data variables
-        self.header = b"Test"
-        self.data = b"Hello"
+    def __init__(self,):
         #Initialising timestamp variable
         self.timestamp = (datetime.datetime.fromtimestamp(time.time())
                             .strftime("%Y-%m-%d %H:%M:%S"))        
         #Initalising new symmetric key with 32 byte keyspace
         self.key = get_random_bytes(32)
         
-    def GCM_Encryption(self):        
+
+    def GCM_Encryption(self, header, data):       
         try:
             #Generating new AES cipher in GCM mode using 32 byte key
             cipher = AES.new(self.key, AES.MODE_GCM)
             #Adding header to cipher
-            cipher.update(self.header)
+            cipher.update(header)
             #Encrypting data
-            ciphertext, tag = cipher.encrypt_and_digest(self.data)
+            ciphertext, tag = cipher.encrypt_and_digest(data)
             #Saving constituent parts into JSON database
-            json_output = self.JSON_Output(cipher, self.header, ciphertext, tag)
+            json_output = self.JSON_Output(cipher, header, ciphertext, tag)
         except Exception as inst:
             print(type(inst))
             print(inst.args)
             print(inst)
         finally:
             #Returning database
-            return json_output        
+            return json_output       
 
     def GCM_Decryption(self):
         try:
+            #Opening JSON database
             b64 = self.JSON_Open_Database()
             json_k = ["nonce", "header", "ciphertext", "tag"]
-            jv = {k:b64decode(b64[k]) for k in (json_k)}            
+            #Initialising new dictionary containing values from database
+            jv = {k:b64decode(b64[k]) for k in (json_k)}
             cipher = AES.new(self.key, AES.MODE_GCM, nonce = jv["nonce"])
             cipher.update(jv["header"])
             plaintext = cipher.decrypt_and_verify(jv["ciphertext"], jv["tag"])        
@@ -47,7 +48,7 @@ class AES_GCM_ALGORITHM:
             print(inst.args)
             print(inst)
         finally:
-            return plaintext
+            return plaintext.decode("utf-8")
 
     def JSON_Open_Database(self):
         #Opening and returning database values
@@ -80,12 +81,41 @@ class AES_GCM_ALGORITHM:
         
         return key_dump
 
+    #Function for running and testing algorithm
+    def Algorithm_Test(self):
+        pHeader = b"Test"
+        pData = b"T"
+
+        #Executing encryption function
+        try:            
+            s1 = timer()
+            print(self.GCM_Encryption(pHeader, pData), "\n----------")
+            e1 = timer()
+            print("Encryption execution speed: %d\n" % (e1-s1))
+        except Exception as inst:
+            print(type(inst))
+            print(inst.args)
+            print(inst)
+        finally:
+            True
+
+        #Executing decryption function
+        try:
+            s2 = timer()
+            print(self.GCM_Decryption(), "\n----------")
+            e2 = timer()
+            print("Decryption execution speed: %d" % (e2-s2))
+        except Exception as inst:
+            print(type(inst))
+            print(inst.args)
+            print(inst)
+        finally:
+            True
+
     def main(self):
-        print(self.GCM_Encryption())
-        print(self.GCM_Decryption())
-        #print(self.JSON_Open_Database())
+        self.Algorithm_Test()
 
 
 if __name__ == "__main__":
-    AESGCM =AES_GCM_ALGORITHM()
+    AESGCM = AES_GCM_ALGORITHM()
     AESGCM.main()
