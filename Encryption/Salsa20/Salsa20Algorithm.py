@@ -18,9 +18,9 @@ class Salsa:
 
         #Generating new Salsa20 Cipher
         self.cipher = Salsa20.new(self.key)
-
+        
         #Defining example plaintext
-        self.plaintext = b"hello"
+        self.plaintext = str(input("Enter messaage: ")).encode()
 
     def hash(self, p):
         #Defining example salt value
@@ -43,26 +43,29 @@ class Salsa:
 
         return hashValue[:16]
     
-    def encrypt(self, c, p):
+    def encrypt(self, c, p, k):
+        cipher = Salsa20.new(k)
         ciphertext = c.encrypt(p)
 
         #Returning ciphertext and nonce to be sent to receiver
         return ciphertext, c.nonce
 
     def decrypt(self, c, n, k):
-        x = 2
-        #cipher = Salsa20.new(k, n)
-        #plaintext = cipher.decrypt(c)
+        cipher = Salsa20.new(k, n)
+        plaintext = cipher.decrypt(c)
 
-        return x
+        return plaintext
 
     def main(self):
         cipher = self.cipher
         plaintext = self.plaintext
-        ciphertext = self.encrypt(cipher, plaintext)
-        plain = self.decrypt(cipher, ciphertext[1], self.key)
+        key = self.key
+        
+        ciphertext = self.encrypt(cipher, plaintext, key)
+        plain = self.decrypt(ciphertext[0], ciphertext[1], key)
 
         print(ciphertext[:])
+        print(plain)
 
 if __name__ == "__main__":
     Sal20 = Salsa()
