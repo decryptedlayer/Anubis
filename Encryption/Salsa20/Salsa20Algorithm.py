@@ -2,7 +2,7 @@ import bcrypt, binascii
 from Crypto.Cipher import Salsa20
 
 """
-Example of using Salsa20 as a private key messaging protocol
+Example concept of using Salsa20 as a private key messaging protocol
 where both parties use a known hashed password in order to
 to encrypt and decrypt messages.
 """
