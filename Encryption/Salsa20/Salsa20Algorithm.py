@@ -34,25 +34,28 @@ class Salsa:
 
         return cipher
 
+    #Function for checking variable input properties
     def check(self, x):
         l, typ = len(x), type(x)
 
-        return l, typ
-        
+        return l, typ        
 
+    #Function for generating hashed password used for encryption key
     def password(self):
         password = str(input("Enter Password of 16 characters: ")).encode()
         hashValue = self.hash(password)
 
         return hashValue[:16]
-    
+
+    #Salsa20 Encryption function
     def encrypt(self, c, p, k):
         cipher = Salsa20.new(k)
         ciphertext = c.encrypt(p)
 
-        #Returning ciphertext and nonce to be sent to receiver
+        #Returning ciphertext and nonce used for decryption
         return ciphertext, c.nonce
 
+    #Salsa20 Decryption function
     def decrypt(self, c, n, k):
         cipher = Salsa20.new(k, n)
         plaintext = cipher.decrypt(c)
