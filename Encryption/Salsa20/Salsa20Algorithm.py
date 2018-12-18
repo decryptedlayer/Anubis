@@ -63,7 +63,6 @@ class Salsa:
         plain = self.decrypt(cipher, ciphertext[1], self.key)
 
         print(ciphertext[:])
-        #print(plain)
 
 if __name__ == "__main__":
     Sal20 = Salsa()
