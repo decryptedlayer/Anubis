@@ -5,6 +5,9 @@ from Crypto.Cipher import Salsa20
 Example concept of using Salsa20 as a private key messaging protocol
 where both parties use a known hashed password in order to
 to encrypt and decrypt messages.
+
+Message authenticity is is not guaranteed unless use of HMAC Message
+Authentication Code to authenticate ciphertext (encrypt-then-authenticate)
 """
 
 class Salsa:
